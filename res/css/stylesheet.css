@@ -1,0 +1,211 @@
+:root
+{
+	--color1: #05386B;	/*darkblue*/
+	--color2: #379683;
+	--color3: #5CDB95;
+	--color4: #8EE4AF;
+	--color5: #EDF5E1;	/*whitish*/
+}
+
+
+body
+{
+	font-family: Verdana;
+	text-align: center;
+	background-color: var(--color4);
+	color: var(--color5);
+}
+form
+{
+	margin: 0;
+}
+#accountinfo
+{
+	display: inline-block;
+	margin: -10px;
+	margin-bottom: 1%;
+	float: right;
+	background-color: var(--color1);
+}
+#accountinfo div
+{
+	display: inline-block;
+	margin: 0;
+}
+.container
+{
+	clear: right;
+	margin: 2%;
+	border-radius: 20px;
+	background-color: var(--color2);
+	padding-bottom: 5px;
+}
+.container p
+{
+	text-align: justify;
+	background-color: var(--color1);
+	padding: 10px;
+}
+.container h2
+{
+	text-decoration: underline;
+	border-bottom: solid;
+	padding: 10px;
+}
+.container div
+{
+	margin-bottom: 10px;
+	padding: 2px;
+	text-align: center;
+	background-color: var(--color1);
+}
+.imageright
+{
+	border-radius: 20px;
+	width: 80%;
+	height: auto;
+}
+.containerleft
+{
+	margin: 1%;
+	border-radius: 20px;
+	background-color: var(--color2);
+	padding-bottom: 5px;
+}
+.containerleft p
+{
+	text-align: justify;
+	background-color: var(--color1);
+	padding: 10px;
+}
+.containerleft h2
+{
+	text-decoration: underline;
+	border-bottom: solid;
+	padding: 10px;
+}
+.boxes
+{
+	clear: right;
+}
+.boxes div
+{
+	max-width: 100%;
+	display: inline-block;
+	margin: 2%;
+	background-color: var(--color2);
+	border-radius: 20px;
+}
+.boxes div p
+{
+	background-color: var(--color1);
+	padding: 10px;
+}
+.boxes div h2
+{
+	text-decoration: underline;
+}
+
+
+#header
+{
+	margin: 0;
+	margin-left: -10px;
+	margin-right: -10px;
+	color: var(--color5);
+	background-color: var(--color1);
+}
+#navbar
+{
+	clear: right;
+}
+#navbar a
+{
+	display: inline-block;
+	color: var(--color5);
+	text-decoration: none;
+	background-color: var(--color1);
+	margin: 1%;
+	margin-left: 5%;
+	margin-right: 5%;
+	padding: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 20px 0 20px 0;
+
+	transition: border-radius 0.6s, background-color 0.6s, color 0.6s;
+}
+#navbar a:hover
+{
+	border-radius: 0 20px 0 20px;
+	background-color: var(--color5);
+	color: var(--color1);
+}
+#currentPage
+{
+	border-radius: 0 20px 0 20px !important;
+	color: var(--color1) !important;
+	background-color: var(--color5) !important;
+}
+#footer
+{
+	clear: right;
+	border-radius: 20px;
+	margin: 1%;
+	color: var(--color5);
+	background-color: var(--color2);
+}
+#footer ul
+{
+	clear:right;
+	list-style: none;
+	width: 40%;
+	display: inline-block;
+	padding: 0;
+}
+#footer ul li
+{
+}
+#footer ul li a
+{
+	text-align: center;
+	border-radius: 20px;
+	padding: 5px;
+	margin: 10px;
+	width: 100px;
+	text-decoration: none;
+	display: inline-block;
+	color: var(--color5);
+	background-color: var(--color1);
+	transition: color 1s, background-color 1s;
+}
+#footer ul li a:hover
+{
+	background-color: var(--color5);
+	color: var(--color1);
+}
+
+
+@media(min-width: 860px)
+{
+	.containerleft
+	{
+		border-radius: 20px;
+		margin-right: 350px;
+	}
+	.imageright
+	{
+		width: 300px;
+		height: auto;
+		float: right;
+		margin-right: 1%;
+		margin-bottom: 1%;
+	}
+	.boxes
+	{
+	}
+	.boxes div
+	{
+		width: 300px;
+	}
+}
