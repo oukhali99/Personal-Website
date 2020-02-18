@@ -21,9 +21,14 @@
 		</div>
 		<div class="container">
 			<h2>
-				Header
+				What do you need?
 			</h2>
 			<p>
+				I will make you a website, a Unity game, a python script, Java or C$ program and more. I have good experience in Web Crawling. If you'd like a
+				cheap website, I can make you one similar to this one and help you host it.
+				<br><br>
+				My code is clean and it will be easy for you to bring it to another programmer for future modifications if I'm not around. Please email me with your
+				requests and we can arrange a deal. oussama.khalifeh@mail.mcgill.ca
 			</p>
 		</div>
 		<?php

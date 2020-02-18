@@ -14,7 +14,7 @@ body
 	text-align: center;
 	background-color: var(--color4);
 	color: var(--color5);
-	font-size: 17px;
+	font-size: 18px;
 }
 form
 {
@@ -155,6 +155,7 @@ form
 	margin: 1%;
 	color: var(--color5);
 	background-color: var(--color2);
+	font-size: 12px;
 }
 #footer ul
 {
