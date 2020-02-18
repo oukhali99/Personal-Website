@@ -14,6 +14,7 @@ body
 	text-align: center;
 	background-color: var(--color4);
 	color: var(--color5);
+	font-size: 20px;
 }
 form
 {
