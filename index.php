@@ -13,7 +13,8 @@
 				What do I do?
 			</h2>
 			<p>
-				I'll make you a we 
+				I'll make you a simple website like this one for a good price. If you notice, as you rescale the browser,
+				the elements rearrange themselves and thus, this website is compatible with mobile devices.
 			</p>
 		</div>
 		<div class="container">
