@@ -10,34 +10,28 @@
 
 body
 {
-	font-family: Arial;
+	font-family: "Georgia";
 	text-align: center;
 	background-color: var(--color4);
 	color: var(--color5);
-	font-size: 18px;
 }
-form
+p
 {
-	margin: 0;
+	font-size: 20px;
 }
-#accountinfo
+h1
 {
-	display: inline-block;
-	margin: -10px;
-	margin-bottom: 1%;
-	float: right;
-	background-color: var(--color1);
+	font-size: 60px;
 }
-#accountinfo div
+h2
 {
-	display: inline-block;
-	margin: 0;
+	font-size: 30px;
 }
 .container
 {
 	clear: right;
-	margin: 2%;
-	border-radius: 20px;
+	margin:1%;
+	border-radius: 10px;
 	background-color: var(--color2);
 	padding-bottom: 5px;
 }
@@ -45,20 +39,12 @@ form
 {
 	text-align: justify;
 	background-color: var(--color1);
-	padding: 10px;
+	padding: 15px;
 }
 .container h2
 {
-	text-decoration: underline;
 	border-bottom: solid;
 	padding: 10px;
-}
-.container div
-{
-	margin-bottom: 10px;
-	padding: 2px;
-	text-align: center;
-	background-color: var(--color1);
 }
 .imageright
 {
@@ -69,7 +55,7 @@ form
 .containerleft
 {
 	margin: 1%;
-	border-radius: 20px;
+	border-radius: 10px;
 	background-color: var(--color2);
 	padding-bottom: 5px;
 }
@@ -77,11 +63,10 @@ form
 {
 	text-align: justify;
 	background-color: var(--color1);
-	padding: 10px;
+	padding: 15px;
 }
 .containerleft h2
 {
-	text-decoration: underline;
 	border-bottom: solid;
 	padding: 10px;
 }
@@ -122,6 +107,7 @@ form
 }
 #navbar a
 {
+	font-size: 20px;
 	display: inline-block;
 	color: var(--color5);
 	text-decoration: none;
@@ -170,6 +156,7 @@ form
 }
 #footer ul li a
 {
+	font-size: 15px;
 	text-align: center;
 	border-radius: 20px;
 	padding: 5px;
