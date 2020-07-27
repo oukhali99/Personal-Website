@@ -24,6 +24,6 @@
 
 	function display_error($error_string)
 	{
-		echo($error_string);
+		echo('<p style="color: black;">'.$error_string."</p>");
 	}
 ?>

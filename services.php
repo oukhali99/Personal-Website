@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<?php
-			
+		<?php			
 			$pageName = "Services";
 			include "./res/php/header.php";
 		?>

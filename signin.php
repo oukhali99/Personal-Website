@@ -1,5 +1,5 @@
 <?php
-	$pageName = "Sign In";
+	$pageName = "";
 	include_once "res/php/header.php";
 	include_once "res/php/functions.php";
 	include_once "res/php/dbconn.php";
@@ -8,7 +8,7 @@
 	$f_password = get($conn, "password");
 	$hashed_password = md5($f_password);
 
-	$stmt = $conn->stmt_init();  //mysqli_stmt_init($conn);
+	$stmt = $conn->stmt_init();
 	if (!$stmt)
 	{
 		display_error("Mysql error: failed to initialize statement");
@@ -41,11 +41,11 @@
 	$row_count = $res->num_rows;
 	if ($row_count == 0)
 	{	
-		echo "This e-mail is not registered";
+		display_error("This e-mail is not registered");
 	}
-	elseif (isset($_SESSION["loggedin"]) && $_SESSION(["loggedin"]))
+	elseif (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"])
 	{
-		echo "Already logged in";
+		display_error("Already logged in");
 	}
 	else
 	{
@@ -59,10 +59,12 @@
 			// login
 			$_SESSION["loggedin"] = true;
 			$_SESSION["display_name"] = $display_name;
+
+			display_error("Login successful");
 		}
 		else
 		{
-			echo "Wrong password";
+			display_error("Wrong password");
 		}
 	}
 ?>
