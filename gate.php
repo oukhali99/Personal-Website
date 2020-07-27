@@ -4,38 +4,36 @@
 		include_once "res/php/header.php";
 	?>
 	
-	<form action="signup.php" style="clear: right;">
-		<fieldset>
-			<legend>Sign Up</legend>
-			E-mail:<br>
-			<input type="text" name="email"><br>
-			Password:<br>
-			<input type="password" name="password"><br>
-			Display Name:<br> 
-			<input type="text" name="display_name"><br><br>
-			<input type="submit" value="Sign Up!">
-		</fieldset>
-	</form>
+	<div class="container">
+		<form action="signup.php">
+				<legend><h2>Sign Up</h2></legend>
+				E-mail:<br>
+				<input type="text" name="email"><br>
+				Password:<br>
+				<input type="password" name="password"><br>
+				Display Name:<br> 
+				<input type="text" name="display_name"><br><br>
+				<input type="submit" value="Sign Up!">
+		</form>
+	</div>
 
-	<form action="signin.php">
-		<fieldset>
-			<legend>Sign In</legend>
-			E-mail:<br>
-			<input type="text" name="email"><br>
-			Password:<br>
-			<input type="password" name="password"><br><br>
-			<input type="submit" value="Sign In!">
-		</fieldset>
-	</form>
+	<div class="container">
+		<form action="signup.php">
+				<legend><h2>Sign In</h2></legend>
+				E-mail:<br>
+				<input type="text" name="email"><br>
+				Password:<br>
+				<input type="password" name="password"><br><br>
+				<input type="submit" value="Sign In!">
+		</form>
+	</div>
 
-	
-	<form action="sqlinject.php">
-		<fieldset>
-			<legend>SQL Injection Test</legend>
+	<div class="container">
+		<form action="signup.php">
+			<legend><h2>SQL Injection Test</h2></legend>
 			SELECT * FROM :<br> 
 			<input type="text" name="name"><br><br>
 			<input type="submit" value="Inject!">
-		</fieldset>
-	</form>
-
+		</form>
+	</div>
 </html>

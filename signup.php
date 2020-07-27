@@ -38,14 +38,25 @@
 		$succ = $stmt->prepare("INSERT INTO Customers (display_name, email, hashed_password) values(?,?,?);");
 		if (!$succ)
 		{
-			echo("Mysql error: could not prepare mysql statement");
+			display_error("Mysql error: could not prepare mysql statement");
 		}
 
-		$succ = $stmt->bind_param("sss");
+		$succ = $stmt->bind_param("sss", $form_display_name, $form_email, $hashed_password);
+		if (!$succ)
+		{
+			display_error("Mysql error: could not bind params");
+		}
 
+		$succ = $stmt->execute();
+		if (!$succ)
+		{
+			display_error("Mysql error: failed to execute statement");
+		}
+
+		$res = $stmt->get_result();
 		if (!$res)
 		{
-			echo mysqli_error($conn);
+			display_error("Mysql error: failed to get statement result");
 		}
 		else
 		{
@@ -54,9 +65,3 @@
 	}
 ?>
 <br>
-
-<html>
-	Name: <?php echo $form_name; ?><br>
-	E-Mail: <?php echo $form_email; ?><br>
-	Hashed Password: <?php echo $hashed_password; ?><br>
-</html>
