@@ -1,5 +1,5 @@
 <?php
-	define("DB_HOSTNAME", "localhost");
+	define("DB_HOSTNAME", "valiant-soft.ca");
 	define("DB_USERNAME", "oussamak");
 	define("DB_PASSWORD", "password");
 	define("DB_DATABASE", "personal-website");
