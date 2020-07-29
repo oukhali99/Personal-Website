@@ -51,12 +51,6 @@
 		{
 			display_error("Mysql error: failed to execute statement");
 		}
-
-		$res = $stmt->get_result();
-		if (!$res)
-		{
-			display_error("Mysql error: failed to get statement result");
-		}
 		else
 		{
 			display_error("Successfully created account");
