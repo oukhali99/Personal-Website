@@ -1,5 +1,5 @@
 <?php
-	$pageName = "SQL Inject";
+	$pageName = "";
 	include_once 'res/php/header.php';
 	include_once 'res/php/functions.php';
 	include_once 'res/php/dbconn.php';

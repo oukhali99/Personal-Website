@@ -18,7 +18,7 @@
 	</div>
 
 	<div class="container">
-		<form action="signup.php">
+		<form action="signin.php">
 				<legend><h2>Sign In</h2></legend>
 				E-mail:<br>
 				<input type="text" name="email"><br>
@@ -29,7 +29,7 @@
 	</div>
 
 	<div class="container">
-		<form action="signup.php">
+		<form action="sqlinject.php">
 			<legend><h2>SQL Injection Test</h2></legend>
 			SELECT * FROM :<br> 
 			<input type="text" name="name"><br><br>

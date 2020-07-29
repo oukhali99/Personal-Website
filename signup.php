@@ -1,5 +1,5 @@
 <?php
-	$pageName = "Sign Up";
+	$pageName = "";
 	include_once 'res/php/header.php';
 	include_once 'res/php/functions.php';	
 	include_once 'res/php/dbconn.php';	
@@ -9,21 +9,22 @@
 	$form_password = get($conn, "password");
 	
 	$hashed_password = md5($form_password);
-	$value_string = '"'.$form_display_name.'", "'.$form_email.'", "'.$hashed_password.'"';
-
-	echo "Value String: ".$value_string."<br>";
 	
-	if (email_exists($conn, $form_email))
+	if ($form_display_name == "" || $form_email == "" || $form_password == "")
 	{
-		echo "User with that email already exists!";
+		display_error("Please fill in all fields");
+	}
+	elseif (email_exists($conn, $form_email))
+	{
+		display_error("User with that email already exists!");
 	}
 	elseif (!filter_var($form_email, FILTER_VALIDATE_EMAIL))
 	{
-		echo "Invalid E-mail";
+		display_error("Invalid E-mail");
 	}
 	elseif($form_display_name == "")
 	{
-		echo "Display name cannot be empty";
+		display_error("Display name cannot be empty");
 	}
 	else
 	{
@@ -60,7 +61,7 @@
 		}
 		else
 		{
-			echo "Successfully created account";
+			display_error("Successfully created account");
 		}
 	}
 ?>
