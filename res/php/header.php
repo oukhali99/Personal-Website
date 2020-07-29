@@ -18,7 +18,7 @@
 	}
 	else
 	{
-		echo $_SESSION["display_name"].' <a id="accountinfo" href="logoff.php">Logoff</a>';
+		echo ' <a id="accountinfo" href="logoff.php">'.$_SESSION["display_name"].' Logoff</a>';
 	}
 ?>
 
