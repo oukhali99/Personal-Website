@@ -11,16 +11,23 @@
 	?>
 </title>
 
-<?php
-	if (!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"])
-	{
-		echo '<a id="accountinfo" href = "gate.php">Login / Sign Up</a>';
-	}
-	else
-	{
-		echo ' <a id="accountinfo" href="logoff.php">'.$_SESSION["display_name"].' Logoff</a>';
-	}
-?>
+<div id="accountinfo">
+	<?php
+		if ($pageName == "Login / Sign Up")
+		{
+			// Do nothing
+		}
+		elseif (!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"])
+		{
+			echo '<a href = "gate.php">Login / Sign Up</a>';
+		}
+		else
+		{
+			echo $_SESSION["display_name"];
+			echo ' <a href="logoff.php">'.' Logoff</a>';
+		}
+	?>
+</div>
 
 <div id="navbar">
 	<a href="index.php" <?php if ($pageName == "Home"){echo "id='currentPage'";}?>>Home</a>

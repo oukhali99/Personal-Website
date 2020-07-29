@@ -177,6 +177,11 @@ h2
 #accountinfo
 {
 	float: right;
+	color: var(--color1);
+}
+
+#accountinfo a
+{
 	background-color: var(--color1);
 	color: var(--color5);
 	padding: 7px;
@@ -187,7 +192,7 @@ h2
 	transition: border-radius 1s, background-color 1s, color 1s;
 }
 
-#accountinfo:hover
+#accountinfo a:hover
 {
 	border-radius: 0;
 	background-color: var(--color5);
