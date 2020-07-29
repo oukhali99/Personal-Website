@@ -61,6 +61,7 @@
 			$_SESSION["display_name"] = $display_name;
 
 			display_error("Login successful");
+			header("location: index.php");
 		}
 		else
 		{
