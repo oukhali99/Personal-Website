@@ -28,8 +28,6 @@
 	}
 	else
 	{
-		$res = $conn->query("insert into Customers(display_name, email, hashed_password) values(".$value_string.");");
-
 		$stmt = $conn->stmt_init();
 		if (!$stmt)
 		{
