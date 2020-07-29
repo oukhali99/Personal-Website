@@ -14,7 +14,7 @@
                                         E-mail
                                 </h2>
                                 <p>
-                                        example@hotmail.com
+                                        oussama.khalifeh@mail.mcgill.ca
                                 </p>
                         </div>
                         <div>

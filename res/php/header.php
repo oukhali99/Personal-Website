@@ -31,7 +31,7 @@
 
 <div id="navbar">
 	<a href="index.php" <?php if ($pageName == "Home"){echo "id='currentPage'";}?>>Home</a>
-	<a href="about.php" <?php if ($pageName == "About"){echo "id='currentPage'";}?>>About</a>
+	<a href="sourcecode.php" <?php if ($pageName == "Source Code"){echo "id='currentPage'";}?>>Source Code</a>
 	<a href="contact.php" <?php if ($pageName == "Contact"){echo "id='currentPage'";}?>>Contact</a>
 	<a href="services.php" <?php if ($pageName == "Services"){echo "id='currentPage'";}?>>Services</a>
 	<a href="games.php" <?php if ($pageName == "Games"){echo "id='currentPage'";}?>>Games</a>
