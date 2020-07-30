@@ -19,8 +19,8 @@
 	<?php
 		if (isset($_GET['log']))
 		{
-			//session_destroy();
-			//session_start();
+			session_destroy();
+			session_start();
 		}
 		
 		if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"])
