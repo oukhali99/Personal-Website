@@ -19,9 +19,7 @@
 				No Wordpress or web frameworks were used at any 
 				point during the developpment of this website. Feel
 				free to explore and find any bugs you can! The source code
-				for this project is public and available on Github. <br><br><br>
-				TODO:<br>
-				-Display all submitted feedback on the feedback page
+				for this project is public and available on Github.
 			</p>
 		</div>
 		<div class="container">

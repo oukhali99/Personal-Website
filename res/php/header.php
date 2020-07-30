@@ -26,7 +26,7 @@
 			echo ' 
 			<form style="display:inline-block;" action="'.$_SESSION['lastpage'].'">'.'
 				<input name="log" style="display: none;">
-				<input type="submit" value="logoff">
+				<input type="submit" value="Logoff">
 			</form>';
 		}
 		elseif ($pageName == "Login / Sign Up")
