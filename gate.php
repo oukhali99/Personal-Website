@@ -4,7 +4,14 @@
 		include_once "res/php/header.php";
 	?>
 	
-	<div class="container">
+	<div class="container"
+		<?php
+			if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"])
+			{
+				echo 'style="display:none;"';
+			}
+		?>
+	>
 		<h2>Sign Up</h2>
 		<form action="signup.php" id="signup">
 				E-mail:<br>
@@ -17,7 +24,14 @@
 		</form>
 	</div>
 
-	<div class="container">
+	<div class="container"
+		<?php
+			if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"])
+			{
+				echo 'style="display:none;"';
+			}
+		?>
+	>
 		<h2>Sign In</h2>
 		<form action="signin.php">
 				E-mail:<br>

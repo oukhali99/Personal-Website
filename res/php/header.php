@@ -13,18 +13,18 @@
 
 <div id="accountinfo">
 	<?php
-		if ($pageName == "Login / Sign Up")
-		{
-			// Do nothing
-		}
-		elseif (!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"])
-		{
-			echo '<a href = "gate.php">Login / Sign Up</a>';
-		}
-		else
+		if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"])
 		{
 			echo $_SESSION["display_name"];
 			echo ' <a href="logoff.php">'.' Logoff</a>';
+		}
+		elseif ($pageName == "Login / Sign Up")
+		{
+			// Do nothing
+		}
+		else
+		{
+			echo '<a href = "gate.php">Login / Sign Up</a>';
 		}
 	?>
 </div>
