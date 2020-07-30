@@ -50,6 +50,13 @@ h2
 {
 	color: var(--color5)
 }
+.container form
+{
+	background-color: var(--color1);
+	margin: 0.5%;	
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
 
 .imageright
 {

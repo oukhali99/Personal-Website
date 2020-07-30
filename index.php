@@ -26,9 +26,11 @@
 		</div>
 		<div class="container">
 			<h2>
-				Ok but why?
+				Why I did this
 			</h2>
-			<div id="fun">Fun</div>
+			<div id="fun">
+				Fun
+			</div>
 		</div>
 		<?php
 			include "./res/php/footer.php";
