@@ -13,6 +13,8 @@ body
 	font-family: "Georgia";
 	text-align: center;
 	background-color: var(--color4);
+	background: rgb(0,75,22);
+	background: linear-gradient(90deg, var(--color4) 20%, var(--color1) 150%);
 	color: var(--color5);
 }
 p

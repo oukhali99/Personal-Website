@@ -21,7 +21,8 @@
 				free to explore and find any bugs you can! The source code
 				for this project is public and available on Github. <br><br><br>
 				TODO:<br>
-				-Redirect to same page on login/signup page and display errors in the squares
+				-Redirect to same page on login/signup page and display errors in the squares<br>
+				-Display all submitted feedback on the feedback page
 			</p>
 		</div>
 		<div class="container">
