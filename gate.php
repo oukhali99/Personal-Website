@@ -30,7 +30,7 @@
 					}
 					elseif (!$_GET["email"] || !$_GET["password"] || !$_GET["display_name"])
 					{
-						//Do nothing
+						echo("Fill in the fields");
 					}
 					else
 					{						
@@ -69,7 +69,7 @@
 					}
 					elseif (!$_GET["email2"] || !$_GET["password2"])
 					{
-						//Do nothing
+						echo("Fill in the fields");
 					}
 					else
 					{
