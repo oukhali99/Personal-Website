@@ -260,11 +260,11 @@ h2
 	.containerleft
 	{
 		border-radius: 20px;
-		margin-right: 260px;
+		margin-right: 350px;
 	}
 	.imageright
 	{
-		width: 210px;
+		width: 300px;
 		height: auto;
 		float: right;
 		margin-right: 1%;
@@ -279,6 +279,28 @@ h2
 	}
 }
 
-#signup
+.row div
 {
+	float: left;
+	width: 46%;
+	margin: 2%;
+}
+
+.row div a
+{
+}
+
+.row:after
+{
+	content: "";
+	display:table;
+	clear: both;
+}
+
+.minecraftimage
+{
+	max-width: 70%;
+	padding: 2%;
+	margin: 2%;
+	background-color: var(--color2);
 }
