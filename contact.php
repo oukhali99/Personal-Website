@@ -9,14 +9,34 @@
         </head>
         <body>
                 <div class="container">
-                        <form>
-                                <legend><h2>Feedback</h2></legend>
-				E-mail:<br>
-				<input type="text" name="email"><br>
-				Password:<br>
-				<input type="password" name="password"><br><br>
-				<input type="submit" value="Sign In!">                                
+                        <h2>Feedback</h2>
+                        <form action="feedback.php" style=
+                        <?php
+                                if (!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"])
+                                {
+                                        echo '"display: none;"';
+                                }
+                        ?>>
+				Subject:<br>
+                                <textarea name="subject" cols="100" rows="1"></textarea><br><br>
+                                
+				Feedback:<br>
+				<textarea name="feedback" cols="100" rows="10"></textarea><br><br>
+				<input type="submit" value="Submit">         
                         </form>
+                        <p style=
+                        <?php
+                                if (!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"])
+                                {
+                                        echo '"text-align: center;"';
+                                }
+                                else
+                                {
+                                        echo '"display: none;"';
+                                }
+                        ?>>
+                                Please login to submit any feedback
+                        </p>
                 </div>
 
                 <div class="boxes">

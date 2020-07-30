@@ -6,7 +6,7 @@
 	
 	<div class="container">
 		<h2>Sign Up</h2>
-		<form action="signup.php">
+		<form action="signup.php" id="signup">
 				E-mail:<br>
 				<input type="text" name="email"><br><br>
 				Password:<br>
