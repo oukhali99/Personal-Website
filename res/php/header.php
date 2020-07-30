@@ -8,15 +8,26 @@
 		session_start();
 		
 		echo $pageName;
+		$_SESSION['lastpage'] = $_SERVER['PHP_SELF'];
 	?>
 </title>
 
 <div id="accountinfo">
 	<?php
+		if (isset($_GET['log']))
+		{
+			session_destroy();
+			session_start();
+		}
+		
 		if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"])
 		{
 			echo $_SESSION["display_name"];
-			echo ' <a href="logoff.php">'.' Logoff</a>';
+			echo ' 
+			<form style="display:inline-block;" action="'.$_SESSION['lastpage'].'">'.'
+				<input name="log" style="display: none;">
+				<input type="submit" value="logoff">
+			</form>';
 		}
 		elseif ($pageName == "Login / Sign Up")
 		{
