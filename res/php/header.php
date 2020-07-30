@@ -17,7 +17,7 @@
 
 <div id="accountinfo">
 	<?php
-		if (isset($_GET['log']))
+		if ($_GET['log'])
 		{
 			session_destroy();
 			session_start();
