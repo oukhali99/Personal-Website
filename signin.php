@@ -59,6 +59,7 @@
 			// login
 			$_SESSION["loggedin"] = true;
 			$_SESSION["display_name"] = $display_name;
+			$_SESSION["email"] = $f_email;
 
 			display_error("Login successful");
 			header("location: index.php");

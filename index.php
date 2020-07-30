@@ -20,8 +20,8 @@
 				point during the developpment of this website. Feel
 				free to explore and find any bugs you can! The source code
 				for this project is public and available on Github. <br><br><br>
-				One last thing. With the use of your browser's zoom in function,
-				you'll notice that this website is mobile friendly. Thank you for visiting
+				TODO:<br>
+				-Redirect to same page on login/signup page and display errors in the squares
 			</p>
 		</div>
 		<div class="container">
