@@ -41,13 +41,15 @@
 		}
 		else
 		{
+			$hashed_password = md5($password);
+
 			$stmt = $conn->stmt_init();
 			if (!$stmt)
 			{
 				display_error("Mysql error: failed to initialize statement");
 			}
 
-			$succ = $stmt->prepare("INSERT INTO Customers (display_name, email, hashed_password, feedback_count) values(?,?,?,0);");
+			$succ = $stmt->prepare("INSERT INTO Customers (display_name, email, hashed_password, feedback_count, activated) values(?,?,?,0,false);");
 			if (!$succ)
 			{
 				display_error("Mysql error: could not prepare mysql statement");
@@ -66,7 +68,7 @@
 			}
 			else
 			{
-				display_error("Successfully created account");
+				display_error("Successfully created account. Check your e-mail for an activation link");
 			}
 		}
 	}

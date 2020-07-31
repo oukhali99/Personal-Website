@@ -4,6 +4,9 @@
 		include_once "res/php/header.php";
 		include_once "res/php/functions.php";
 		include_once "res/php/dbconn.php";
+		include_once "PHPMailer/";
+
+		$mail = new PHPMailer(true);
 	?>
 	
 	<div class="container"
