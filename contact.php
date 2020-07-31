@@ -15,7 +15,7 @@
                         <h2>Feedback</h2>
                         <form action="contact.php" style=
                         <?php
-                                if (!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"])
+                                if (!loggedin())
                                 {
                                         echo '"display: none;"';
                                 }
@@ -47,7 +47,7 @@
                         </form>
                         <p style=
                                 <?php
-                                        if (!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"])
+                                        if (!loggedin())
                                         {
                                                 echo '"text-align: center;"';
                                         }

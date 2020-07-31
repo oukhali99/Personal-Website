@@ -267,4 +267,27 @@
 			display_error("Reached max feedback count of ".$maxFeedback);
 		}
 	}
+
+	function loggedin()
+	{
+		if (!isset($_SESSION["loggedin"]))
+		{
+			return false;
+		}
+		if (!$_SESSION["loggedin"])
+		{
+			return false;
+		}
+		
+		return true;
+	}
+
+	function set_display_name($email, $new_display_name, $conn)
+	{
+		$stmt = mysqli_stmt_init($conn);
+		mysqli_stmt_prepare($stmt, "UPDATE Customers SET display_name=? WHERE email=?");
+		mysqli_stmt_bind_param($stmt, "ss", $new_display_name, $email);
+		mysqli_stmt_execute($stmt);
+		$_SESSION['display_name'] = $new_display_name;
+	}
 ?>

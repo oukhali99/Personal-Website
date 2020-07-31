@@ -24,6 +24,8 @@
 				-Allow only 1 feedback per user<br>
 				-Responsive design for feedback page<br>
 				-Minecraft Server active status
+				-Confirm email
+				-Change password link to email
 			</p>
 		</div>
 		<div class="container">
