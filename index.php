@@ -3,7 +3,7 @@
 	<head>
 		<?php
 			$pageName = "Home";
-			include "./res/php/header.php";
+			include_once "./res/php/header.php";
 		?>
 	</head>
 	<body>
@@ -35,7 +35,7 @@
 			</div>
 		</div>
 		<?php
-			include "./res/php/footer.php";
+			include_once "./res/php/footer.php";
 		?>
 	</body>
 </html>

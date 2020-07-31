@@ -26,6 +26,7 @@
 		if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"])
 		{
 			echo $_SESSION["display_name"];
+			echo '<a href="account.php">Account</a>';
 			echo ' 
 			<form style="display:inline-block;" action="'.$_SESSION['lastpage'].'">'.'
 				<input name="log" style="display: none;">
