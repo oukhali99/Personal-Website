@@ -2,7 +2,7 @@
 <html>
         <head>
                 <?php
-
+                        $maxFeedback = 2;
                         $pageName = "Contact";
                         include_once "res/php/header.php";
                         include_once "res/php/functions.php";
@@ -13,7 +13,7 @@
                 
                 <div class="container">
                         <h2>Feedback</h2>
-                        <form action="feedback.php" style=
+                        <form action="contact.php" style=
                         <?php
                                 if (!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"])
                                 {
@@ -25,19 +25,37 @@
                                 
 				Feedback:<br>
 				<textarea name="feedback" cols="100" rows="10"></textarea><br><br>
-				<input type="submit" value="Submit">         
+				<input type="submit" value="Submit">
+
+                                <?php
+                                        if (!isset($_GET["subject"]) || !isset($_GET["feedback"]))
+					{
+						// Do nothing
+					}
+					elseif (!$_GET["subject"] || !$_GET["feedback"])
+					{
+						display_error("Please fill in all the fields");
+					}
+					else
+					{
+						$subject = $_GET["subject"];
+						$feedback = $_GET["feedback"];
+
+						feedback($_SESSION['email'], $subject, $feedback, $maxFeedback, $conn);
+					}
+                                ?>
                         </form>
                         <p style=
-                        <?php
-                                if (!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"])
-                                {
-                                        echo '"text-align: center;"';
-                                }
-                                else
-                                {
-                                        echo '"display: none;"';
-                                }
-                        ?>>
+                                <?php
+                                        if (!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"])
+                                        {
+                                                echo '"text-align: center;"';
+                                        }
+                                        else
+                                        {
+                                                echo '"display: none;"';
+                                        }
+                                ?>>
                                 Please login to submit any feedback
                         </p>
                 </div>
