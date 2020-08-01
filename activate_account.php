@@ -7,7 +7,7 @@
             include_once "res/php/functions.php";
             include_once "res/php/dbconn.php";
 
-            if (!isset($_GET['activation_token']) && !isser($_GET['email']))
+            if (!isset($_GET['activation_token']) && !isset($_GET['email']))
             {
                 header("location: index.php");
                 exit();
