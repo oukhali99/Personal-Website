@@ -37,7 +37,8 @@
             <h2>
                 Almost there!
             </h2>
-            <form action=<?php echo '"activate_account.php?activation_token='.$activation_token.'"'; ?>>
+            <form action="activate_account.php">
+                <input type="hidden" name="activation_token" value="<?php echo htmlspecialchars($_GET['activation_token']);?>">
                 E-mail:
                 <input type="text" name="email"><br><br>
                 <input type="Submit" value="Activate">
