@@ -85,7 +85,7 @@
 				$mail->Password = "Valiantsoftgmail$";
 				$mail->SetFrom('no-reply@valiant-soft.ca');
 				$mail->Subject = "Welcome to Valiant Soft Community!";
-				$mail->Body = "Activate your account with the following link: valiant-soft.ca/activate_account?activation_token=".$activation_token;
+				$mail->Body = "Activate your account with the following link: <a href='google.ca'>testi</a> valiant-soft.ca/activate_account.php?activation_token=".$activation_token;
 				$mail->AddAddress($email);
 				$mail->Send();
 				display_error("Successfully created account. Check your e-mail for an activation link");
