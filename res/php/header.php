@@ -17,7 +17,10 @@
 
 <div style="color: black;">
 	<?php
-		echo $_GET['display_message'];
+		if (isset($_GET['display_message']))
+		{
+			echo $_GET['display_message'];
+		}
 	?>
 </div>
 
