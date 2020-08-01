@@ -10,11 +10,11 @@
 		$mail->isSMTP();
 		$mail->SMTPAuth = true;
 		$mail->SMTPSecure = "ssl";
-		$mail->Host = "smtp.office365.com";
-		$mail->Port = '587';
+		$mail->Host = "smtp.gmail.com";
+		$mail->Port = '465';
 		$mail->isHTML();
-		$mail->Username = "darkenedligh99@gmail.com";
-		$mail->Password = "";
+		$mail->Username = "valiantsoftcontact@gmail.com";
+		$mail->Password = "Valiantsoftgmail$";
 		$mail->SetFrom('no-reply@valiant-soft.ca');
 		$mail->Subject = "Hello World";
 		$mail->Body = "Test";
