@@ -99,8 +99,8 @@
 					}
 					else
 					{
-						$email = $_GET["email2"];
-						$password = $_GET["password2"];
+						$email = $_GET["email"];
+						$password = $_GET["password"];
 
 						signin($email, $password, $conn);
 					}
