@@ -10,15 +10,15 @@
 		$mail->isSMTP();
 		$mail->SMTPAuth = true;
 		$mail->SMTPSecure = "ssl";
-		$mail->Host = "smtp.gmail.com";
-		$mail->Port = '465';
+		$mail->Host = "smtp.office365.com";
+		$mail->Port = '587';
 		$mail->isHTML();
 		$mail->Username = "darkenedligh99@gmail.com";
-		$mail->Password = "googleq";
+		$mail->Password = "";
 		$mail->SetFrom('no-reply@valiant-soft.ca');
 		$mail->Subject = "Hello World";
 		$mail->Body = "Test";
-		$mail->AddAddress("oussamakhalifeh@hotmail.com");
+		$mail->AddAddress("oukhali@hotmail.com");
 		$mail->Send();
 	?>
 	
