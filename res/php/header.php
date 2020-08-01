@@ -17,6 +17,8 @@
 
 <div id="accountinfo">
 	<?php
+	
+		echo $_SERVER['HTTP_HOST'];
 		if (isset($_GET['log']))
 		{
 			session_destroy();
