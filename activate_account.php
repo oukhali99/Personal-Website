@@ -13,7 +13,7 @@
                 exit();
             }
 
-            if (isset($_GET['email']))
+            if (isset($_GET['activation_token']) && isset($_GET['email']))
             {
                 $email = $_GET['email'];
                 $activation_token = $_GET['activation_token'];
@@ -37,7 +37,7 @@
             <h2>
                 Almost there!
             </h2>
-            <form action="activate_account.php">
+            <form action=<?php echo '"activate_account.php?activation_token='.$activation_token.'"'; ?>>
                 E-mail:
                 <input type="text" name="email"><br><br>
                 <input type="Submit" value="Activate">
