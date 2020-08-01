@@ -18,7 +18,7 @@
                 $email = $_GET['email'];
                 $activation_token = $_GET['activation_token'];
                 $_activation_token_mysql = get_activation_token($email, $conn);
-
+                
                 if ($activation_token == $_activation_token_mysql)
                 {
                     activate_account($email, $conn);
