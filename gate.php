@@ -80,10 +80,10 @@
 
 
 				E-mail:<br>
-				<input type="text" name="email" value=<?php echo $email; ?>><br><br>
+				<input type="text" name="email" value=<?php if (isset($_GET['signin'])) {echo $email;} ?>><br><br>
 
 				Password:<br>
-				<input type="password" name="password" value=<?php echo $password; ?>><br><br>
+				<input type="password" name="password" value=<?php if (isset($_GET['signin'])) {echo $email;} ?>><br><br>
 				
 				<input type="submit" name="signin" value="Sign In!"><br><br>
 
