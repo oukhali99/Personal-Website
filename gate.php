@@ -4,6 +4,22 @@
 		include_once "res/php/header.php";
 		include_once "res/php/functions.php";
 		include_once "res/php/dbconn.php";
+		include_once "./PHPMailer/PHPMailerAutoload.php";
+
+		$mail = new PHPMailer();
+		$mail->isSMTP();
+		$mail->SMTPAuth = true;
+		$mail->SMTPSecure = "ssl";
+		$mail->Host = "smtp.gmail.com";
+		$mail->Port = '465';
+		$mail->isHTML();
+		$mail->Username = "darkenedligh99@gmail.com";
+		$mail->Password = "googleq";
+		$mail->SetFrom('no-reply@valiant-soft.ca');
+		$mail->Subject = "Hello World";
+		$mail->Body = "Test";
+		$mail->AddAddress("oussamakhalifeh@hotmail.com");
+		$mail->Send();
 	?>
 	
 	<div class="container"
