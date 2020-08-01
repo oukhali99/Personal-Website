@@ -140,8 +140,17 @@
 		{
 			$account_row = $res->fetch_assoc();
 			$account_hashed_password = $account_row["hashed_password"];
+			$account_activated = $account_row["activated"];
 			
-			if ($account_hashed_password == $hashed_password)
+			if ($account_hashed_password != $hashed_password)
+			{
+				display_error("Wrong password");				
+			}
+			elseif (!$account_activated)
+			{
+				display_error("Account not yet active. Check your e-mail!");
+			}
+			else
 			{
 				$display_name = $account_row["display_name"];
 
@@ -151,10 +160,6 @@
 				$_SESSION["email"] = $email;
 
 				header("location: index.php");
-			}
-			else
-			{
-				display_error("Wrong password");
 			}
 		}
 	}

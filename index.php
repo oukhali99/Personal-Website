@@ -26,7 +26,9 @@
 				-Minecraft Server active status
 				-Confirm email
 				-Change password link to email
-			</p>
+				-Stop inputs from being cleared when you fail something in the gate.php
+				-Re-Type password when signing up
+				</p>
 		</div>
 		<div class="container">
 			<h2>
