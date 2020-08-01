@@ -47,7 +47,7 @@
 		else
 		{
 			$hashed_password = md5($password);
-			$activation_token = random_bytes(16).$email.random_bytes(16);
+			$activation_token = $email.md5(random_bytes(32));
 
 			$stmt = $conn->stmt_init();
 			if (!$stmt)
