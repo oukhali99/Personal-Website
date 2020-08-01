@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<?php
-			$pageName = "";
+            $pageName = "";
             include_once "res/php/header.php";
             include_once "res/php/functions.php";
             include_once "res/php/dbconn.php";
@@ -22,7 +22,12 @@
                 if ($activation_token == $_activation_token_mysql)
                 {
                     activate_account($email, $conn);
-                    header("location: index.php");
+                    display_black("Successfully activated ".$email);
+                    //header("location: index.php");
+                }
+                else
+                {
+                    display_error("Something went wrong. Please contact support");
                 }
             }
 		?>
