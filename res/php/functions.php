@@ -327,7 +327,12 @@
 		$res = mysqli_stmt_get_result($stmt);
 
 		$row = mysqli_fetch_assoc($res);
-		return $row['activation_token'];
+		
+		if ($row)
+		{
+			return $row['activation_token'];
+		}
+		return NULL;
 	}
 
 	// All this function does is switch a boolean function from false to true
