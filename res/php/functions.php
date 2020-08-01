@@ -335,8 +335,6 @@
 		return NULL;
 	}
 
-	// All this function does is switch a boolean function from false to true
-	// This function does no checks or anything
 	function activate_account($email, $conn)
 	{
 		$stmt = mysqli_stmt_init($conn);

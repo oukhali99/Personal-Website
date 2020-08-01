@@ -60,30 +60,14 @@
                         </p>
                 </div>
                 
+                <br>
+                <h1 style="background-color: var(--color1);">Submitted Feedback</h1>
+
                 <?php
                         $stmt = $conn->stmt_init();
-                        if (!$stmt)
-                        {
-                                display_error("Mysql error: failed to initialize statement");
-                        }
-
                         $succ = $stmt->prepare("SELECT * FROM Feedback");
-                        if (!$succ)
-                        {
-                                display_error("Could not prepare mysql statement");		
-                        }
-
-                        $succ = $stmt->execute();
-                        if (!$succ)
-                        {
-                                display_error("Mysql error: failed to execute statement");
-                        }
-                        
+                        $succ = $stmt->execute();                        
                         $res = $stmt->get_result();
-                        if (!$res)
-                        {
-                                display_error("Mysql error: failed to get statement result");
-                        }
 
                         $cur = $res->fetch_assoc();
                         for ($i = 0; $i < 3; $i++)
@@ -97,10 +81,10 @@
                                 $subject = $cur['subject'];
                                 $feedback = $cur['feedback'];
 
-                                echo '<div class="container">';
-                                echo '<h2>'.$subject.'</h2>';
-                                echo '<p>'.$feedback.'</p>';
+                                echo '<div class="feedbackContainer">';
                                 echo '<h3>By: '.$email.'</h3>';
+                                echo '<h2>Subject: '.$subject.'</h2>';
+                                echo '<p>'.$feedback.'</p>';
                                 echo '</div>';
                                 $cur = $res->fetch_assoc();
                         }

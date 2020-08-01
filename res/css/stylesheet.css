@@ -257,6 +257,29 @@ h2
 	color: var(--color5);
 }
 
+.feedbackContainer
+{
+	clear: right;
+	margin:1%;
+	border-radius: 10px;
+	background-color: var(--color2);
+	text-align: left;
+	padding: 1%;
+}
+
+.feedbackContainer h2
+{
+	text-align: left;
+	padding-left: 2%;
+}
+
+.feedbackContainer p
+{
+	background-color: var(--color1);
+	border-radius: 5px;
+	padding: 0.5%;
+}
+
 @media(min-width: 860px)
 {
 	.containerleft

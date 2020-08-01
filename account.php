@@ -67,6 +67,34 @@
             </form>
         </div>
 
+        <?php
+             $stmt = $conn->stmt_init();
+             $succ = $stmt->prepare("SELECT * FROM Feedback");
+             $succ = $stmt->execute();                        
+             $res = $stmt->get_result();
+             $cur = $res->fetch_assoc();
+
+             while ($cur != NULL)
+             {
+                if ($cur['email'] != $_SESSION['email'])
+                {
+                        $cur = $res->fetch_assoc();
+                        continue;
+                }
+
+                $email = $cur['email'];
+                $subject = $cur['subject'];
+                $feedback = $cur['feedback'];
+
+                echo '<div class="feedbackContainer">';
+                echo '<h3>By: '.$email.'</h3>';
+                echo '<h2>Subject: '.$subject.'</h2>';
+                echo '<p>'.$feedback.'</p>';
+                echo '</div>';
+                $cur = $res->fetch_assoc();
+             }
+        ?>
+
 		<?php
 			include_once "./res/php/footer.php";
 		?>

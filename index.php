@@ -24,8 +24,9 @@
 				-Option to mark feedback as resolved<br>
 				-Responsive design for feedback page<br>
 				-Change password link to email<br>
-				-Stop inputs from being cleared when you fail something in the gate.php<br>
-				-Re-Type password when signing up
+				-Re-Type password when signing up<br>
+				-Change to POST instead of GET<br>
+				-Unique display names
 				</p>
 		</div>
 		<div class="container">
