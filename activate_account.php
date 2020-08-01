@@ -7,10 +7,10 @@
             include_once "res/php/functions.php";
             include_once "res/php/dbconn.php";
 
-            if (!isset($_GET['activation_token']))
+            if (!isset($_GET['activation_token']) && !isser($_GET['email']))
             {
-                //header("location: index.php");
-                //exit();
+                header("location: index.php");
+                exit();
             }
 
             if (isset($_GET['email']))
@@ -22,7 +22,7 @@
                 if ($activation_token == $_activation_token_mysql)
                 {
                     activate_account($email, $conn);
-                    //header("location: index.php");
+                    header("location: index.php");
                 }
             }
 		?>
@@ -32,7 +32,7 @@
             <h2>
                 Almost there!
             </h2>
-            <form action=<?php echo '"activate_account.php?activation_token='.$activation_token.'"';?>>
+            <form action="activate_account.php">
                 E-mail:
                 <input type="text" name="email"><br><br>
                 <input type="Submit" value="Activate">
