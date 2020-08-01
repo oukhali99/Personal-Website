@@ -22,8 +22,8 @@
                 if ($activation_token == $activation_token_mysql)
                 {
                     activate_account($email, $conn);
+                    header("location: index.php");
                     display_black("Successfully activated ".$email);
-                    //header("location: index.php");
                 }
                 else
                 {
