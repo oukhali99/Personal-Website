@@ -9,8 +9,8 @@
 
             if (!isset($_GET['activation_token']))
             {
-                header("location: index.php");
-                exit();
+                //header("location: index.php");
+                //exit();
             }
 
             if (isset($_GET['email']))
@@ -22,7 +22,7 @@
                 if ($activation_token == $_activation_token_mysql)
                 {
                     activate_account($email, $conn);
-                    header("location: index.php");
+                    //header("location: index.php");
                 }
             }
 		?>
@@ -32,7 +32,7 @@
             <h2>
                 Almost there!
             </h2>
-            <form>
+            <form action=<?php echo '"activate_account.php?activation_token='.$activation_token.'"';?>>
                 E-mail:
                 <input type="text" name="email"><br><br>
                 <input type="Submit" value="Activate">
