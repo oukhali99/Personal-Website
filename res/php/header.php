@@ -15,6 +15,12 @@
 	?>
 </title>
 
+<div style="color: black;">
+	<?php
+		echo $_GET['display_message'];
+	?>
+</div>
+
 <div id="accountinfo">
 	<?php
 		if (isset($_GET['log']))

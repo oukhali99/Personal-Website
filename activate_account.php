@@ -22,7 +22,8 @@
                 if ($activation_token == $activation_token_mysql)
                 {
                     activate_account($email, $conn);
-                    header("location: index.php?display_message=hello world");
+                    header("location: index.php?display_message=Successfully activated account");
+                    exit();
                 }
                 else
                 {
