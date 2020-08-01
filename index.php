@@ -21,12 +21,10 @@
 				free to explore and find any bugs you can! The source code
 				for this project is public and available on Github. <br><br><br>
 				TODO:<br>
-				-Allow only 1 feedback per user<br>
+				-Option to mark feedback as resolved<br>
 				-Responsive design for feedback page<br>
-				-Minecraft Server active status
-				-Confirm email
-				-Change password link to email
-				-Stop inputs from being cleared when you fail something in the gate.php
+				-Change password link to email<br>
+				-Stop inputs from being cleared when you fail something in the gate.php<br>
 				-Re-Type password when signing up
 				</p>
 		</div>

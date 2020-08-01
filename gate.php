@@ -17,13 +17,28 @@
 	>
 		<h2>Sign Up</h2>
 		<form action="gate.php" id="signup">
+				<?php
+					if (isset($_GET['signup']))
+					{
+						$email = $_GET["email"];
+						$password = $_GET["password"];
+						$display_name = $_GET["display_name"];
+					}
+				?>
+
+
 				E-mail:<br>
-				<input type="text" name="email"><br><br>
+				<input type="text" name="email" value=<?php if (isset($_GET['signup'])) {echo $email;} ?>><br><br>
+
 				Password:<br>
-				<input type="password" name="password"><br><br>
+				<input type="password" name="password" value=<?php if (isset($_GET['signup'])) {echo $password;} ?>><br><br>
+
 				Display Name:<br> 
-				<input type="text" name="display_name"><br><br>
-				<input type="submit" value="Sign Up!"><br><br>
+				<input type="text" name="display_name" value=<?php if (isset($_GET['signup'])) {echo $display_name;} ?>><br><br>
+
+				<input type="submit" name="signup" value="Sign Up!"?><br><br>
+
+
 				<?php
 					if (!isset($_GET["email"]) || !isset($_GET["password"]) || !isset($_GET["display_name"]))
 					{
@@ -55,20 +70,30 @@
 	>
 		<h2>Sign In</h2>
 		<form action="gate.php">
+				<?php
+					if (isset($_GET['signin']))
+					{
+						$email = $_GET["email"];
+						$password = $_GET["password"];
+					}
+				?>
+
+
 				E-mail:<br>
-				<input type="text" name="email2"><br><br>
+				<input type="text" name="email" value=<?php echo $email; ?>><br><br>
 
 				Password:<br>
-				<input type="password" name="password2"><br><br>
+				<input type="password" name="password" value=<?php echo $password; ?>><br><br>
 				
-				<input type="submit" value="Sign In!"><br><br>
+				<input type="submit" name="signin" value="Sign In!"><br><br>
+
 
 				<?php
-					if (!isset($_GET["email2"]) || !isset($_GET["password2"]))
+					if (!isset($_GET['signin']))
 					{
 						// Do nothing
 					}
-					elseif (!$_GET["email2"] || !$_GET["password2"])
+					elseif (!$_GET["email"] || !$_GET["password"])
 					{
 						echo("Fill in the fields");
 					}
