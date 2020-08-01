@@ -321,7 +321,7 @@
 	function get_activation_token($email, $conn)
 	{
 		$stmt = mysqli_stmt_init($conn);
-		mysqli_stmt_prepare($conn, "SELECT activation_token FROM Customers WHERE email=?");
+		mysqli_stmt_prepare($stmt, "SELECT activation_token FROM Customers WHERE email=?");
 		mysqli_stmt_bind_param($stmt, "s", $email);
 		mysqli_stmt_execute($stmt);
 		$res = mysqli_stmt_get_result($stmt);
