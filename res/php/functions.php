@@ -9,6 +9,11 @@
 		echo('<div style="color: white;">'.$error_string."</div>");
 	}
 
+	function display_black($error_string)
+	{
+		echo('<div style="color: black;">'.$error_string."</div>");
+	}
+
 	function email_exists($conn, $email)
 	{		
 		$stmt = mysqli_stmt_init($conn);
@@ -42,6 +47,7 @@
 		else
 		{
 			$hashed_password = md5($password);
+			$activation_token = random_bytes(16).$email.random_bytes(16);
 
 			$stmt = $conn->stmt_init();
 			if (!$stmt)
@@ -49,13 +55,13 @@
 				display_error("Mysql error: failed to initialize statement");
 			}
 
-			$succ = $stmt->prepare("INSERT INTO Customers (display_name, email, hashed_password, feedback_count, activated) values(?,?,?,0,false);");
+			$succ = $stmt->prepare("INSERT INTO Customers (display_name, email, hashed_password, feedback_count, activated, activation_token) values(?,?,?,0,false,?);");
 			if (!$succ)
 			{
 				display_error("Mysql error: could not prepare mysql statement");
 			}
 
-			$succ = $stmt->bind_param("sss", $display_name, $email, $hashed_password);
+			$succ = $stmt->bind_param("ssss", $display_name, $email, $hashed_password, $activation_token);
 			if (!$succ)
 			{
 				display_error("Mysql error: could not bind params");
@@ -68,6 +74,20 @@
 			}
 			else
 			{
+				$mail = new PHPMailer();
+				$mail->isSMTP();
+				$mail->SMTPAuth = true;
+				$mail->SMTPSecure = "ssl";
+				$mail->Host = "smtp.gmail.com";
+				$mail->Port = '465';
+				$mail->isHTML();
+				$mail->Username = "valiantsoftcontact@gmail.com";
+				$mail->Password = "Valiantsoftgmail$";
+				$mail->SetFrom('no-reply@valiant-soft.ca');
+				$mail->Subject = "Welcome to Valiant Soft Community!";
+				$mail->Body = "Activate your account with the following link: valiant-soft.ca/activate_account?activation_token=".$activation_token;
+				$mail->AddAddress($email);
+				$mail->Send();
 				display_error("Successfully created account. Check your e-mail for an activation link");
 			}
 		}
@@ -291,5 +311,27 @@
 		mysqli_stmt_bind_param($stmt, "ss", $new_display_name, $email);
 		mysqli_stmt_execute($stmt);
 		$_SESSION['display_name'] = $new_display_name;
+	}
+
+	function get_activation_token($email, $conn)
+	{
+		$stmt = mysqli_stmt_init($conn);
+		mysqli_stmt_prepare($conn, "SELECT activation_token FROM Customers WHERE email=?");
+		mysqli_stmt_bind_param($stmt, "s", $email);
+		mysqli_stmt_execute($stmt);
+		$res = mysqli_stmt_get_result($stmt);
+
+		$row = mysqli_fetch_assoc($res);
+		return $row['activation_token'];
+	}
+
+	// All this function does is switch a boolean function from false to true
+	// This function does no checks or anything
+	function activate_account($email, $conn)
+	{
+		$stmt = mysqli_stmt_init($conn);
+		mysqli_stmt_prepare($stmt, "UPDATE Customers SET activated=true WHERE email=?");
+		mysqli_stmt_bind_param($stmt, "s", $email);
+		mysqli_stmt_execute($stmt);
 	}
 ?>
