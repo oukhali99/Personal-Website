@@ -61,7 +61,7 @@
 				</div>
 				
 				<br>
-				<h1 style="background-color: var(--color1);">Submitted Feedback</h1>
+				<h1 id="header">Submitted Feedback</h1>
 
 				<?php
 						$stmt = $conn->stmt_init();
