@@ -74,6 +74,8 @@
 			}
 			else
 			{
+				$html_link = '<a href="https://www.valiant-soft.ca/activate_account.php?activation_token='.$activation_token.'">Link</a>';
+
 				$mail = new PHPMailer();
 				$mail->isSMTP();
 				$mail->SMTPAuth = true;
@@ -85,7 +87,7 @@
 				$mail->Password = "Valiantsoftgmail$";
 				$mail->SetFrom('no-reply@valiant-soft.ca');
 				$mail->Subject = "Welcome to Valiant Soft Community!";
-				$mail->Body = "Activate your account with the following link: ".$_SERVER['HTTP_HOST']."/activate_account.php?activation_token=".$activation_token;
+				$mail->Body = "Activate your account with the following link: ".$html_link;
 				$mail->AddAddress($email);
 				$mail->Send();
 				display_error("Successfully created account. Check your e-mail for an activation link");
