@@ -1,4 +1,4 @@
-<?php
+ <?php
 	function get($conn, $name)
 	{
 		return $_GET[$name];
@@ -24,6 +24,11 @@
 		$count = mysqli_num_rows($res);
 
 		return ($count != 0);
+	}
+
+	function email_activated($conn, $email)
+	{
+		
 	}
 
 	function valid_email($email)
@@ -210,7 +215,7 @@
 			return false;
 		}
 
-		$succ = $stmt->prepare("INSERT INTO Feedback(email, subject, feedback) VALUES(?, ?, ?)");
+		$succ = $stmt->prepare("INSERT INTO Feedback(email, subject, feedback, resolved) VALUES(?, ?, ?, false)");
 		if (!$succ)
 		{
 			return false;	

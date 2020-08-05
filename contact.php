@@ -11,21 +11,24 @@
 		</head>
 		<body>
 				
-				<div class="container">
-						<h2>Feedback</h2>
-						<form action="contact.php" style=
-						<?php
-								if (!loggedin())
-								{
-										echo '"display: none;"';
-								}
-						?>>
-				<div>Subject:
-								<textarea name="subject" cols="80" rows="1"></textarea><br><br></div>
+				<div class="container" style="width: 50%; margin-left: 25%">
+					<h2>Feedback</h2>
+					<form action="contact.php" style=
+					<?php
+						if (!loggedin())
+						{
+								echo '"display: none;"';
+						}
+					?>>
+
+					<div>
+						<h3 style="margin: 0; margin-bottom: 1%;">Subject</h3>
+						<textarea name="subject" rows="1" style="width: 50%;"></textarea><br><br>
+					</div>
 								
-				Feedback:<br>
-				<textarea name="feedback" cols="100" rows="10"></textarea><br><br>
-				<input type="submit" value="Submit">
+				<h3 style="margin: 0; margin-bottom: 1%;">Feedback</h3>
+				<textarea name="feedback" rows="10" style="width: 50%;"></textarea><br><br>
+				<input type="submit" value="Submit" style="font-size: 14px">
 
 								<?php
 										if (!isset($_GET["subject"]) || !isset($_GET["feedback"]))

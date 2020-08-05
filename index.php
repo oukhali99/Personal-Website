@@ -29,7 +29,7 @@
 				-Unique display names
 				</p>
 		</div>
-		<div class="container">
+		<div class="container" style="margin-left: 2%; margin-right: 2%;">
 			<h2>
 				Why I did this
 			</h2>
