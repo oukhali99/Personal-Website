@@ -67,6 +67,11 @@
             </form>
         </div>
 
+        <div id="header">
+			<h1>
+				Pending Feedback
+			</h1>
+        </div>
         <?php
              $stmt = $conn->stmt_init();
              $succ = $stmt->prepare("SELECT * FROM Feedback");
@@ -76,20 +81,37 @@
 
              while ($cur != NULL)
              {
-                if ($cur['email'] != $_SESSION['email'])
-                {
-                        $cur = $res->fetch_assoc();
-                        continue;
-                }
-
                 $email = $cur['email'];
                 $subject = $cur['subject'];
                 $feedback = $cur['feedback'];
+                $feedback_id = $cur['id'];
+                $resolved = $cur['resolved'];
 
-                echo '<div class="feedbackContainer">';
+                if ($email != $_SESSION['email'] || $resolved)
+                {
+                    $cur = $res->fetch_assoc();
+                    continue;
+                }                
+
+                echo '<div class="feedbackContainer" style="width: 90%; margin-left: 5%;">';
                 echo '<h3>By: '.$email.'</h3>';
-                echo '<h2>Subject: '.$subject.'</h2>';
+				echo '<h2>Subject: '.$subject.'</h2>';				
                 echo '<p>'.$feedback.'</p>';
+                
+                if (isset($_GET['resolved_feedback_id']) && $_GET['resolved_feedback_id'] == $feedback_id)
+                {
+                    $feedback_count = get_feedback_count($email, $conn);
+                    $new_feedback_count = $feedback_count - 1;
+
+                    mark_feedback_resolved($conn, $feedback_id);
+                    set_feedback_count($email, $new_feedback_count, $conn);
+                    echo '<div style="text-align: right;"><a>Resolved</a></div>';
+                }
+                else
+                {
+                    echo '<div style="text-align: right;"><a href="account.php?resolved_feedback_id='.$feedback_id.'">Mark as Resolved</a></div>';
+                }
+
                 echo '</div>';
                 $cur = $res->fetch_assoc();
              }

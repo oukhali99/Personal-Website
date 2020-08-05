@@ -21,7 +21,6 @@
 				free to explore and find any bugs you can! The source code
 				for this project is public and available on Github. <br><br><br>
 				TODO:<br>
-				-Option to mark feedback as resolved<br>
 				-Responsive design for feedback page<br>
 				-Change password link to email<br>
 				-Re-Type password when signing up<br>

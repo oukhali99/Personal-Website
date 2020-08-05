@@ -182,6 +182,18 @@
 		}
 	}
 
+	function feedback_id_exists($conn, $feedback_id)
+	{
+		$stmt = mysqli_stmt_init($conn);
+		mysqli_stmt_prepare($stmt, "SELECT * FROM Feedback WHERE id=?");
+		mysqli_stmt_bind_param($stmt, "s", $feedback_id);
+		mysqli_stmt_execute($stmt);
+		$res = mysqli_stmt_get_result($stmt);
+		$numrows = mysqli_num_rows($res);
+
+		return ($numrows == 1);
+	}
+
 	function get_feedback_count($email, $conn)
 	{
 		$stmt = $conn->stmt_init();
@@ -226,13 +238,19 @@
 			return false;
 		}
 
-		$succ = $stmt->prepare("INSERT INTO Feedback(email, subject, feedback, resolved) VALUES(?, ?, ?, false)");
+		$succ = $stmt->prepare("INSERT INTO Feedback(email, subject, feedback, resolved, id) VALUES(?, ?, ?, false, ?)");
 		if (!$succ)
 		{
 			return false;	
 		}
 		
-		$succ = $stmt->bind_param("sss", $email, $subject, $feedback);
+		$feedback_id = md5(random_bytes(32));
+		while (feedback_id_exists($conn, $feedback_id))
+		{
+			$feedback_id = md5(random_bytes(32));
+		}
+
+		$succ = $stmt->bind_param("ssss", $email, $subject, $feedback, $feedback_id);
 		if (!$succ)
 		{
 			return false;
@@ -311,6 +329,14 @@
 		{
 			display_error("Reached max feedback count of ".$maxFeedback);
 		}
+	}
+
+	function mark_feedback_resolved($conn, $feedback_id)
+	{
+		$stmt = mysqli_stmt_init($conn);
+		mysqli_stmt_prepare($stmt, "UPDATE Feedback SET resolved=true WHERE id=?");
+		mysqli_stmt_bind_param($stmt, "s", $feedback_id);
+		mysqli_stmt_execute($stmt);
 	}
 
 	function loggedin()

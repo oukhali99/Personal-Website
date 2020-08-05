@@ -77,12 +77,19 @@
 						{
 								if (!$cur)
 								{
-										break;
+									break;
 								}
 
 								$email = $cur['email'];
 								$subject = $cur['subject'];
 								$feedback = $cur['feedback'];
+								$resolved = $cur['resolved'];
+
+								if ($resolved)
+								{
+									$cur = $res->fetch_assoc();
+									continue;									
+								}
 
 								echo '<div class="feedbackContainer">';
 								echo '<h3>By: '.$email.'</h3>';
