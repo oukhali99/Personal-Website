@@ -42,7 +42,7 @@
     <body>
         <div class="container">
             <h2>Reset Password</h2>
-            <form action="change_password.php" method="GET">
+            <form action="change_password.php" method="POST">
                 <input type="hidden" name="password_reset_token" value=<?php if (isset($_POST['password_reset_token'])) {echo '"'.$_POST['password_reset_token'].'"';} elseif (isset($_GET['password_reset_token'])) {echo '"'.$_GET['password_reset_token'].'"';} ?>><br>
                 <div class="label">E-Mail</div>
                 <input name="email"><br><br>
