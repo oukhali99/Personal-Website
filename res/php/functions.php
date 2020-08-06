@@ -129,7 +129,7 @@
 				display_error("Mysql error: could not prepare mysql statement");
 			}
 
-			$succ = $stmt->bind_param("ssss", $display_name, $email, $hashed_password, $activation_token, $password_reset_token);
+			$succ = $stmt->bind_param("sssss", $display_name, $email, $hashed_password, $activation_token, $password_reset_token);
 			if (!$succ)
 			{
 				display_error("Mysql error: could not bind params");
