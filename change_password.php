@@ -16,7 +16,7 @@
                 $confirm_new_password = $_POST['confirm_new_password'];
                 $email = $_POST['email'];
 
-                if (!$password_reset_token || !$old_password || !$new_password || !$confirm_new_password || !$email)
+                if ($password_reset_token=="" || $old_password=="" || $new_password=="" || $confirm_new_password=="" || $email=="")
                 {
                     display_error("Please fill in all the fields");
                 }
