@@ -27,7 +27,8 @@
 				-Change to POST instead of GET<br>
 				-Unique display names<br>
 				-Add Minecraft Bedrock as a game<br>
-				-Password requirements
+				-Password requirements<br>
+				-Style all forms
 				</p>
 		</div>
 		<div class="container" style="margin-left: 2%; margin-right: 2%;">

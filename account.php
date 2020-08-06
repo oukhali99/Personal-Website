@@ -110,7 +110,7 @@
                 echo '<h2>Subject: '.$subject.'</h2>';				
                 echo '<p>'.$feedback.'</p>';
                 
-                if (isset($_POST['resolved_feedback_id']) && $_POST['resolved_feedback_id'] == $feedback_id)
+                if (isset($_GET['resolved_feedback_id']) && $_GET['resolved_feedback_id'] == $feedback_id)
                 {
                     $feedback_count = get_feedback_count($email, $conn);
                     $new_feedback_count = $feedback_count - 1;
