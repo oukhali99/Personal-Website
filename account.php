@@ -6,7 +6,8 @@
             include_once "res/php/header.php";
             include_once "res/php/functions.php";
             include_once "res/php/dbconn.php";
-            
+            include_once "./PHPMailer/PHPMailerAutoload.php";
+
             if (!loggedin())
             {
                 header("location: index.php");
@@ -42,26 +43,35 @@
                     }
                 ?>
             </form>
-            <form action="account.php">
+            <form action="account.php" method="post">
                 <h2>Change password</h2>
                 E-Mail:<br>
                 <input type="text" name="email"><br><br>
-                <input type="submit"><br><br>
+                <input type="submit" name="change_password"><br><br>
 
                 <?php
-                    if (!isset($_GET["email"]))
+                    if (isset($_POST['change_password']))
                     {
-                        // Do nothing, the button hasn't been clicked
-                    }
-                    elseif (!$_GET["email"])
-                    {
-                        // Field was left blank
-                        display_error("Please fill in the fields");
-                    }
-                    else
-                    {
-                        $email = $_GET["email"];
-                        mail($email, "Password reset", "Please follow the link below");
+                        $email = $_POST["email"];
+                        $session_email = $_SESSION["email"];
+
+                        if (!$email)
+                        {
+                            // Field was left blank
+                            display_error("Please fill in the fields");
+                        }
+                        elseif ($email != $session_email)
+                        {
+                            display_error("This is not your e-mail");
+                        }
+                        else
+                        {
+                            $password_reset_token = get_password_reset_token($conn, $email);
+                            $link = '<a href="https://www.valiant-soft.ca/change_password.php?password_reset_token='.$password_reset_token.'">Test</a>';
+                            $phpMailer = new PHPMailer();
+                            send_mail($phpMailer, $session_email, "Reset your Valiant Soft Password!", "Password reset link: ".$link);
+                            display_error("Password reset link sent. Check your e-mail");
+                        }
                     }
                 ?>
             </form>
@@ -73,14 +83,15 @@
 			</h1>
         </div>
         <?php
-             $stmt = $conn->stmt_init();
-             $succ = $stmt->prepare("SELECT * FROM Feedback");
-             $succ = $stmt->execute();                        
-             $res = $stmt->get_result();
-             $cur = $res->fetch_assoc();
+            $stmt = $conn->stmt_init();
+            $succ = $stmt->prepare("SELECT * FROM Feedback");
+            $succ = $stmt->execute();                        
+            $res = $stmt->get_result();
 
-             while ($cur != NULL)
-             {
+            $cur = $res->fetch_assoc();
+            $has_pending_feedback = false;
+            while ($cur != NULL)
+            {
                 $email = $cur['email'];
                 $subject = $cur['subject'];
                 $feedback = $cur['feedback'];
@@ -91,11 +102,12 @@
                 {
                     $cur = $res->fetch_assoc();
                     continue;
-                }                
+                }
+                $has_pending_feedback = true;            
 
                 echo '<div class="feedbackContainer" style="width: 90%; margin-left: 5%;">';
                 echo '<h3>By: '.$email.'</h3>';
-				echo '<h2>Subject: '.$subject.'</h2>';				
+                echo '<h2>Subject: '.$subject.'</h2>';				
                 echo '<p>'.$feedback.'</p>';
                 
                 if (isset($_GET['resolved_feedback_id']) && $_GET['resolved_feedback_id'] == $feedback_id)
@@ -114,7 +126,12 @@
 
                 echo '</div>';
                 $cur = $res->fetch_assoc();
-             }
+            }
+
+            if (!$has_pending_feedback)
+            {
+                display_black("No submitted feedback");
+            }
         ?>
 
 		<?php

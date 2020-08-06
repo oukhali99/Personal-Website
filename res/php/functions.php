@@ -14,6 +14,24 @@
 		echo('<div style="color: black;">'.$error_string."</div>");
 	}
 
+	function send_mail($phpMailer, $recipient_email, $subject, $body)
+	{
+		$mail = $phpMailer;
+		$mail->isSMTP();
+		$mail->SMTPAuth = true;
+		$mail->SMTPSecure = "ssl";
+		$mail->Host = "smtp.gmail.com";
+		$mail->Port = '465';
+		$mail->isHTML();
+		$mail->Username = "valiantsoftcontact@gmail.com";
+		$mail->Password = "Valiantsoftgmail$";
+		$mail->SetFrom('no-reply@valiant-soft.ca');
+		$mail->Subject = $subject;
+		$mail->Body = $body;
+		$mail->AddAddress($recipient_email);
+		$mail->Send();
+	}
+
 	function email_exists($conn, $email)
 	{		
 		$stmt = mysqli_stmt_init($conn);
@@ -50,6 +68,33 @@
 		return ($match == 1);
 	}
 
+	function get_hashed_password($conn, $email)
+	{
+		$stmt = mysqli_stmt_init($conn);
+		mysqli_stmt_prepare($stmt, "SELECT * FROM Customers WHERE email=?");
+		mysqli_stmt_bind_param($stmt, "s", $email);
+		mysqli_stmt_execute($stmt);
+		$res = mysqli_stmt_get_result($stmt);
+		$num_rows = mysqli_num_rows($res);
+
+		if ($num_rows != 1)
+		{
+			return NULL;
+		}
+
+		$row = mysqli_fetch_assoc($res);
+		return $row['hashed_password'];
+	}
+
+	function set_hashed_password($conn, $email, $new_unhashed_password)
+	{
+		$hashed_password = md5($new_unhashed_password);
+		$stmt = mysqli_stmt_init($conn);
+		mysqli_stmt_prepare($stmt, "UPDATE Customers SET hashed_password=? WHERE email=?");
+		mysqli_stmt_bind_param($stmt, "ss", $hashed_password, $email);
+		mysqli_stmt_execute($stmt);
+	}
+
 	function signup($email, $password, $display_name, $conn)
 	{
 		if (email_exists($conn, $email))
@@ -64,6 +109,13 @@
 		{
 			$hashed_password = md5($password);
 			$activation_token = $email.md5(random_bytes(32));
+			$password_reset_token = $email.md5(random_bytes(32));
+
+			// Make sure token's are distinct
+			while ($activation_token == $password_reset_token)
+			{
+				$password_reset_token = $email.md5(random_bytes(32));				
+			}
 
 			$stmt = $conn->stmt_init();
 			if (!$stmt)
@@ -71,13 +123,13 @@
 				display_error("Mysql error: failed to initialize statement");
 			}
 
-			$succ = $stmt->prepare("INSERT INTO Customers (display_name, email, hashed_password, feedback_count, activated, activation_token) values(?,?,?,0,false,?);");
+			$succ = $stmt->prepare("INSERT INTO Customers (display_name, email, hashed_password, feedback_count, activated, activation_token, password_reset_token) values(?,?,?,0,false,?, ?);");
 			if (!$succ)
 			{
 				display_error("Mysql error: could not prepare mysql statement");
 			}
 
-			$succ = $stmt->bind_param("ssss", $display_name, $email, $hashed_password, $activation_token);
+			$succ = $stmt->bind_param("ssss", $display_name, $email, $hashed_password, $activation_token, $password_reset_token);
 			if (!$succ)
 			{
 				display_error("Mysql error: could not bind params");
@@ -93,19 +145,7 @@
 				$html_link = '<a href="https://www.valiant-soft.ca/activate_account.php?activation_token='.$activation_token.'">Link</a>';
 
 				$mail = new PHPMailer();
-				$mail->isSMTP();
-				$mail->SMTPAuth = true;
-				$mail->SMTPSecure = "ssl";
-				$mail->Host = "smtp.gmail.com";
-				$mail->Port = '465';
-				$mail->isHTML();
-				$mail->Username = "valiantsoftcontact@gmail.com";
-				$mail->Password = "Valiantsoftgmail$";
-				$mail->SetFrom('no-reply@valiant-soft.ca');
-				$mail->Subject = "Welcome to Valiant Soft Community!";
-				$mail->Body = "Activate your account with the following link: ".$html_link;
-				$mail->AddAddress($email);
-				$mail->Send();
+				send_mail($mail, $email, "Welcome to Valiant Soft Community!", "Activate your account with the following link: ".$html_link);
 				display_error("Successfully created account. Check your e-mail for an activation link");
 			}
 		}
@@ -375,6 +415,23 @@
 		if ($row)
 		{
 			return $row['activation_token'];
+		}
+		return NULL;
+	}
+
+	function get_password_reset_token($conn, $email)
+	{
+		$stmt = mysqli_stmt_init($conn);
+		mysqli_stmt_prepare($stmt, "SELECT activation_token FROM Customers WHERE email=?");
+		mysqli_stmt_bind_param($stmt, "s", $email);
+		mysqli_stmt_execute($stmt);
+		$res = mysqli_stmt_get_result($stmt);
+
+		$row = mysqli_fetch_assoc($res);
+		
+		if ($row)
+		{
+			return $row['password_reset_token'];
 		}
 		return NULL;
 	}

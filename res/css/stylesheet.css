@@ -70,6 +70,39 @@ h2
 	padding: 1%;
 	border-radius: 10px;
 	background-color: var(--color1);
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+.container form input
+{
+	color: black;
+	background-color: var(--color2);
+	border-radius: 10px;
+	border-style: initial;
+	margin-bottom: 0.5%;
+}
+
+.container form .label
+{
+	margin-bottom: 2px;
+}
+
+.container form .submit_button input
+{
+	transition: background-color 0.4s cubic-bezier(0.86, 0, 0.07, 1), color 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+	font-size: 16px;
+	padding: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	border-radius: 30px;
+}
+
+.container form .submit_button input:hover
+{
+	background-color: var(--color1);
+	color: var(--color5);
 }
 
 .containerleft
