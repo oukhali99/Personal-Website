@@ -22,13 +22,12 @@
 				for this project is public and available on Github. <br><br><br>
 				TODO:<br>
 				
-				-Change password link to email<br>
-				-Re-Type password when signing up<br>
-				-Change to POST instead of GET<br>
-				-Unique display names<br>
-				-Add Minecraft Bedrock as a game<br>
-				-Password requirements<br>
-				-Style all forms
+				-Re-Type password when signing up (easy)<br>
+				-Unique display names (medium)<br>
+				-Add Minecraft Bedrock as a game (easy)<br>
+				-Password requirements (medium-hard)<br>
+				-Style all forms (easy)<br>
+				-List feedback in terms of date posted (medium-hard)
 				</p>
 		</div>
 		<div class="container" style="margin-left: 2%; margin-right: 2%;">
