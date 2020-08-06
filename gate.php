@@ -16,43 +16,43 @@
 		?>
 	>
 		<h2>Sign Up</h2>
-		<form action="gate.php" id="signup">
+		<form action="gate.php" method="POST" id="signup">
 				<?php
-					if (isset($_GET['signup']))
+					if (isset($_POST['signup']))
 					{
-						$email = $_GET["email"];
-						$password = $_GET["password"];
-						$display_name = $_GET["display_name"];
+						$email = $_POST["email"];
+						$password = $_POST["password"];
+						$display_name = $_POST["display_name"];
 					}
 				?>
 
 
 				E-mail:<br>
-				<input type="text" name="email" value=<?php if (isset($_GET['signup'])) {echo $email;} ?>><br><br>
+				<input type="text" name="email" value=<?php if (isset($_POST['signup'])) {echo $email;} ?>><br><br>
 
 				Password:<br>
-				<input type="password" name="password" value=<?php if (isset($_GET['signup'])) {echo $password;} ?>><br><br>
+				<input type="password" name="password" value=<?php if (isset($_POST['signup'])) {echo $password;} ?>><br><br>
 
 				Display Name:<br> 
-				<input type="text" name="display_name" value=<?php if (isset($_GET['signup'])) {echo $display_name;} ?>><br><br>
+				<input type="text" name="display_name" value=<?php if (isset($_POST['signup'])) {echo $display_name;} ?>><br><br>
 
 				<input type="submit" name="signup" value="Sign Up!"?><br><br>
 
 
 				<?php
-					if (!isset($_GET["email"]) || !isset($_GET["password"]) || !isset($_GET["display_name"]))
+					if (!isset($_POST["email"]) || !isset($_POST["password"]) || !isset($_POST["display_name"]))
 					{
 						// Do nothing
 					}
-					elseif (!$_GET["email"] || !$_GET["password"] || !$_GET["display_name"])
+					elseif (!$_POST["email"] || !$_POST["password"] || !$_POST["display_name"])
 					{
 						echo("Fill in the fields");
 					}
 					else
 					{						
-						$email = $_GET["email"];
-						$password = $_GET["password"];
-						$display_name = $_GET["display_name"];
+						$email = $_POST["email"];
+						$password = $_POST["password"];
+						$display_name = $_POST["display_name"];
 
 						signup($email, $password, $display_name, $conn);
 					}
@@ -69,51 +69,42 @@
 		?>
 	>
 		<h2>Sign In</h2>
-		<form action="gate.php">
+		<form action="gate.php" method="POST">
 				<?php
-					if (isset($_GET['signin']))
+					if (isset($_POST['signin']))
 					{
-						$email = $_GET["email"];
-						$password = $_GET["password"];
+						$email = $_POST["email"];
+						$password = $_POST["password"];
 					}
 				?>
 
 
 				E-mail:<br>
-				<input type="text" name="email" value=<?php if (isset($_GET['signin'])) {echo $email;} ?>><br><br>
+				<input type="text" name="email" value=<?php if (isset($_POST['signin'])) {echo $email;} ?>><br><br>
 
 				Password:<br>
-				<input type="password" name="password" value=<?php if (isset($_GET['signin'])) {echo $password;} ?>><br><br>
+				<input type="password" name="password" value=<?php if (isset($_POST['signin'])) {echo $password;} ?>><br><br>
 				
 				<input type="submit" name="signin" value="Sign In!"><br><br>
 
 
 				<?php
-					if (!isset($_GET['signin']))
+					if (!isset($_POST['signin']))
 					{
 						// Do nothing
 					}
-					elseif (!$_GET["email"] || !$_GET["password"])
+					elseif (!$_POST["email"] || !$_POST["password"])
 					{
 						echo("Fill in the fields");
 					}
 					else
 					{
-						$email = $_GET["email"];
-						$password = $_GET["password"];
+						$email = $_POST["email"];
+						$password = $_POST["password"];
 
 						signin($email, $password, $conn);
 					}
 				?>
-		</form>
-	</div>
-
-	<div class="container">
-		<h2>SQL Injection Test</h2>
-		<form action="sqlinject.php">
-			SELECT * FROM :<br> 
-			<input type="text" name="name"><br><br>
-			<input type="submit" value="Inject!">
 		</form>
 	</div>
 </html>

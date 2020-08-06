@@ -25,7 +25,8 @@
 				-Change password link to email<br>
 				-Re-Type password when signing up<br>
 				-Change to POST instead of GET<br>
-				-Unique display names
+				-Unique display names<br>
+				-Add Minecraft Bedrock as a game
 				</p>
 		</div>
 		<div class="container" style="margin-left: 2%; margin-right: 2%;">

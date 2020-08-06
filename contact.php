@@ -13,7 +13,7 @@
 				
 				<div class="container" style="width: 50%; margin-left: 25%">
 					<h2>Feedback</h2>
-					<form action="contact.php" style=
+					<form action="contact.php" method="POST" style=
 					<?php
 						if (!loggedin())
 						{
@@ -31,18 +31,18 @@
 				<input type="submit" value="Submit" style="font-size: 14px">
 
 								<?php
-										if (!isset($_GET["subject"]) || !isset($_GET["feedback"]))
+										if (!isset($_POST["subject"]) || !isset($_POST["feedback"]))
 					{
 						// Do nothing
 					}
-					elseif (!$_GET["subject"] || !$_GET["feedback"])
+					elseif (!$_POST["subject"] || !$_POST["feedback"])
 					{
 						display_error("Please fill in all the fields");
 					}
 					else
 					{
-						$subject = $_GET["subject"];
-						$feedback = $_GET["feedback"];
+						$subject = $_POST["subject"];
+						$feedback = $_POST["feedback"];
 
 						feedback($_SESSION['email'], $subject, $feedback, $maxFeedback, $conn);
 					}
