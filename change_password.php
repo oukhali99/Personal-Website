@@ -6,7 +6,6 @@
             include_once "res/php/header.php";
             include_once "res/php/functions.php";
             include_once "res/php/dbconn.php";
-            include_once "./PHPMailer/PHPMailerAutoload.php";
 
             if (isset($_GET['password_reset_token']))
             {

@@ -15,29 +15,29 @@
 		?>
 	</head>
 	<body>
-        <div class="container">
+        <div class="container" method="POST">
             <h2>
                 Account Settings
             </h2>
-            <form action="account.php">
+            <form action="account.php" method="POST">
                 <h2>Change display name</h2>
                 New display name:<br>
                 <input type="text" name="display_name"><br><br>
                 <input type="submit"><br><br>
 
                 <?php
-                    if (!isset($_GET["display_name"]))
+                    if (!isset($_POST["display_name"]))
                     {
                         // Do nothing, the button hasn't been clicked
                     }
-                    elseif (!$_GET["display_name"])
+                    elseif (!$_POST["display_name"])
                     {
                         // Field was left blank
                         display_error("Please fill in the fields");
                     }
                     else
                     {
-                        $display_name = $_GET["display_name"];
+                        $display_name = $_POST["display_name"];
                         set_display_name($_SESSION['email'], $display_name, $conn);
                         header("location: account.php");
                     }
@@ -110,7 +110,7 @@
                 echo '<h2>Subject: '.$subject.'</h2>';				
                 echo '<p>'.$feedback.'</p>';
                 
-                if (isset($_GET['resolved_feedback_id']) && $_GET['resolved_feedback_id'] == $feedback_id)
+                if (isset($_POST['resolved_feedback_id']) && $_POST['resolved_feedback_id'] == $feedback_id)
                 {
                     $feedback_count = get_feedback_count($email, $conn);
                     $new_feedback_count = $feedback_count - 1;
