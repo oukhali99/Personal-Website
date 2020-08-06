@@ -26,7 +26,8 @@
 				-Re-Type password when signing up<br>
 				-Change to POST instead of GET<br>
 				-Unique display names<br>
-				-Add Minecraft Bedrock as a game
+				-Add Minecraft Bedrock as a game<br>
+				-Password requirements
 				</p>
 		</div>
 		<div class="container" style="margin-left: 2%; margin-right: 2%;">
