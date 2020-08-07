@@ -14,7 +14,7 @@
 			</h2>
 			<p>
 				This website is built using a combination of
-				HTML, CSS and PHP. It also uses a MySQL database
+				HTML, CSS, PHP and JavaScript. It also uses a MySQL database
 				running on a separate Google Cloud Virtual Machine.
 				No Wordpress or web frameworks were used at any 
 				point during the developpment of this website. Feel
