@@ -233,14 +233,22 @@ h2
 #accountinfo
 {
 	float: right;
+}
+
+#accountinfo p
+{
 	color: var(--color1);
+	font-size: 16px;
+	float: right;
 }
 
 #accountinfo form input
 {
-	border-radius: 0px 5px 5px 0px;
+	float: right;
 	padding-left: 10px;
-	padding-right: 10px;	
+	padding-right: 10px;
+	padding-top: 5px;
+	margin-top: -8px;
 	background-color: var(--color1);
 	color: var(--color5);
 	font-size: 16px;
@@ -256,22 +264,20 @@ h2
 
 #accountinfo a
 {
-	margin-left: 10px;
-	margin-right: -4px;
+	float: right;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: -8px;
+	margin-right: -8px;
 	background-color: var(--color1);
-	font-size: 16px;
-	color: var(--color5);
-	padding: 1.5px;
-	padding-left: 7px;
-	padding-right: 7px;
-	border-radius: 5px 0px 0px 5px;
+	color: inherit;
 	text-decoration: none;
-	transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transition: background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #accountinfo a:hover
 {
-	border-radius: 0;
 	background-color: var(--color5);
 	color: var(--color1);
 }
@@ -361,4 +367,15 @@ h2
 	padding: 2%;
 	margin: 2%;
 	background-color: var(--color2);
+}
+
+#clock
+{
+	float:left;
+	background-color: var(--color1);
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: -8px;
+	margin-left: -8px;
 }

@@ -24,6 +24,10 @@
 	?>
 </div>
 
+<div id="clock">
+	<script src="clock.js"></script>
+</div>
+
 <div id="accountinfo">
 	<?php
 		if (isset($_GET['log']))
@@ -34,10 +38,10 @@
 		
 		if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"])
 		{
-			echo $_SESSION["display_name"];
-			echo '<a href="account.php">Account</a>';
+			echo '<p>'.$_SESSION["display_name"].'</p>';
 			echo ' 
 			<form style="display:inline-block;" action="'.$_SESSION['lastpage'].'">'.'
+				<a href="account.php">Account</a>
 				<input name="log" style="display: none;">
 				<input type="submit" value="Logoff">
 			</form>';
