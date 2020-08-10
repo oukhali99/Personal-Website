@@ -1,56 +1,14 @@
-function updateClock()
+function tick()
 {
-    const DATESEPARATOR = "/";
-    const CLOCKSEPARATOR = ":";
+    console.log("here");    
+    const element = (
+        <div>
+            <h1>Hello World</h1>
+            <h2>It is {new Date().toLocaleDateString()}.</h2>
+        </div>
+    );
 
-    var clock = document.getElementById("clock");
-    var now = new Date();
-    var day = now.getDate();
-    var month = now.getMonth();
-    var year = now.getFullYear();
-    var h = now.getHours();
-    var min = now.getMinutes();
-    var sec = now.getSeconds();
-
-    var dateString = "";
-
-    if (day < 10)
-    {
-        dateString += "0";
-    }
-    dateString += day + DATESEPARATOR;
-
-    if (month < 10)
-    {
-        dateString += "0";
-    }
-    dateString += month + DATESEPARATOR;
-    dateString += year;
-    
-
-    dateString += "&nbsp;&nbsp;&nbsp;";
-    dateString += "Time: ";
-
-    if (h < 10)
-    {
-        dateString += "0";
-    }
-    dateString += h + CLOCKSEPARATOR;
-
-    if (min < 10)
-    {
-        dateString += "0";
-    }
-    dateString += min + CLOCKSEPARATOR;
-
-    if (sec < 10)
-    {
-        dateString += "0";
-    }
-    dateString += sec;
-
-    clock.innerHTML = dateString;
+    ReactDOM.render(element, document.getElementById('clock'));
 }
 
-updateClock();
-setInterval(updateClock, 1000);
+setInterval(tick, 1000);

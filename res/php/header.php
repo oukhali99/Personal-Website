@@ -2,6 +2,8 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="./res/css/stylesheet.css">
+<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
 
 <title>
 	<?php
@@ -24,9 +26,8 @@
 	?>
 </div>
 
-<div id="clock">
-	<script src="clock.js"></script>
-</div>
+<div id="clock"></div>
+<script src="clock.js" type="text/jsx"></script>
 
 <div id="accountinfo">
 	<?php
@@ -39,9 +40,9 @@
 		if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"])
 		{
 			echo '<p>'.$_SESSION["display_name"].'</p>';
+			echo '<a href="account.php">Account</a>';
 			echo ' 
-			<form style="display:inline-block;" action="'.$_SESSION['lastpage'].'">'.'
-				<a href="account.php">Account</a>
+			<form style="display:inline-block;" action="'.$_SESSION['lastpage'].'">'.'				
 				<input name="log" style="display: none;">
 				<input type="submit" value="Logoff">
 			</form>';

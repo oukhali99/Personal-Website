@@ -232,27 +232,14 @@ h2
 
 #accountinfo
 {
-	float: right;
 }
 
 #accountinfo p
 {
-	color: var(--color1);
-	font-size: 16px;
-	float: right;
 }
 
 #accountinfo form input
 {
-	float: right;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 5px;
-	margin-top: -8px;
-	background-color: var(--color1);
-	color: var(--color5);
-	font-size: 16px;
-	border-style: none;
 	transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 #accountinfo form input:hover
@@ -264,15 +251,6 @@ h2
 
 #accountinfo a
 {
-	float: right;
-	padding: 5px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-top: -8px;
-	margin-right: -8px;
-	background-color: var(--color1);
-	color: inherit;
-	text-decoration: none;
 	transition: background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
