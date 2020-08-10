@@ -1,10 +1,11 @@
+console.log("Hello world!");
+
 function tick()
 {
-    console.log("here");    
+    console.log("here");
     const element = (
         <div>
             <h1>Hello World</h1>
-            <h2>It is {new Date().toLocaleDateString()}.</h2>
         </div>
     );
 

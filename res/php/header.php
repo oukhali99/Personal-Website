@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="./res/css/stylesheet.css">
 <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
 
 <title>
 	<?php
@@ -27,7 +28,7 @@
 </div>
 
 <div id="clock"></div>
-<script src="clock.js" type="text/jsx"></script>
+<script src="clock.js" type="text/babel"></script>
 
 <div id="accountinfo">
 	<?php
