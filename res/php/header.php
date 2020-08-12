@@ -4,7 +4,8 @@
 <link rel="stylesheet" href="./res/css/stylesheet.css">
 <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+<script src="https://unpkg.com/babel-core@5.8.38/browser.min.js" crossorigin></script>
+<script src="react/valiant.js" type="text/babel" crossorigin></script>
 
 <title>
 	<?php
@@ -28,7 +29,7 @@
 </div>
 
 <div id="clock"></div>
-<script src="clock.js" type="text/babel"></script>
+<script src="react/clock.js" type="text/babel"></script>
 
 <div id="accountinfo">
 	<?php
@@ -40,7 +41,7 @@
 		
 		if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"])
 		{
-			echo '<p>'.$_SESSION["display_name"].'</p>';
+			echo '<div>'.$_SESSION["display_name"].'</div>';
 			echo '<a href="account.php">Account</a>';
 			echo ' 
 			<form style="display:inline-block;" action="'.$_SESSION['lastpage'].'">'.'				
@@ -59,6 +60,9 @@
 	?>
 </div>
 
+<div id="react"></div>
+<script src="react/react.js" type="text/babel"></script>
+
 <div id="navbar">
 	<a href="index.php" <?php if ($pageName == "Home"){echo "id='currentPage'";}?>>Home</a>
 	<a href="sourcecode.php" <?php if ($pageName == "Source Code"){echo "id='currentPage'";}?>>Source Code</a>
@@ -68,7 +72,7 @@
 	<!--<a href="privacy_policy.php" <?php if ($pageName == "Privacy Policy"){echo "id='currentPage'";}?>>Privacy Policy</a>-->
 </div>
 
-<div id="header">
+<div id="header" style="clear:left">
 	<h1>
 		<?php
 			echo $pageName;

@@ -232,25 +232,31 @@ h2
 
 #accountinfo
 {
+	float: right;
+	margin-top: -8px;
+	margin-right: -8px;
+	font-size: 16px;
 }
 
-#accountinfo p
+#accountinfo div
 {
-}
-
-#accountinfo form input
-{
-	transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-#accountinfo form input:hover
-{
-	background-color: var(--color5);
+	display: inline-block;
+	margin-right: 8px;
 	color: var(--color1);
-	border-radius: 0;
 }
 
 #accountinfo a
 {
+	background-color: var(--color1);
+	color: var(--color5);
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-decoration: none;
+	font-size: inherit;
+	font: inherit;
+	float: right;
+	
 	transition: background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -258,6 +264,26 @@ h2
 {
 	background-color: var(--color5);
 	color: var(--color1);
+}
+
+#accountinfo form input
+{
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-style: none;
+	font-size: 16px;
+	background-color: var(--color1);
+	color: var(--color5);
+	font: inherit;
+
+	transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#accountinfo form input:hover
+{
+	background-color: var(--color5);
+	color: var(--color1);
+	border-radius: 0;
 }
 
 #fun

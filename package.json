@@ -1,8 +1,8 @@
 {
-  "name": "Personal-Website",
+  "name": "personal-website",
   "version": "1.0.0",
   "description": "",
-  "main": "clock.js",
+  "main": "react/react.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
